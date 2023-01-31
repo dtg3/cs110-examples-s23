@@ -49,5 +49,46 @@ int main() {
         printf("%i\n", array_of_three[i]);
     }
 
+    // WEIRD SYNTAX INCOMING!! :)
+    // What if we want to initialize specific indices in the array only?
+    
+    // const means the variable's value is constant and cannot be 
+    //  changed. We will use ALL CAPITALS to represent a constant
+    //  when declared as a variable. We tend to use these (or
+    //  macros more on that later...) to prevent "magic numbers".
+    //  Our examples will violate this from time to time, but magic
+    //  numbers should have a "name" so they can be easily changed or
+    //  referenced.
+    const int ARRAY_SIZE = 10;
+    
+    // This will set the index positions 0, 4, and 9 to the values
+    //  10, 50, and 100 respectively. The rest of the positions will store zero.
+    int init_indicies[ARRAY_SIZE] = {[0] = 10, [4] = 50, [9] = 100};
+
+    for (int i = 0; i < ARRAY_SIZE; ++i) {
+        printf("%i ", init_indicies[i]);
+    }
+    printf("\n");
+
+    // We can even use expressions to assign values
+    
+    int multiplier = 2;
+    
+    // Still an initialization list, but formatted for readability
+    //  This will multiply 2 by 10, 20, and 30 while assigning the results to the
+    //  indices 0, 2, 4. Note that I didn't supply a size. The array will sized
+    //  to fit the largest index. So the array size will be 5.
+
+    int init_indicies_no_size[] = {
+        [0] = 10 * multiplier,
+        [2] = 20 * multiplier,
+        [4] = 30 * multiplier
+    };
+
+    for (int i = 0; i < 5; ++i) {
+        printf("%i ", init_indicies_no_size[i]);
+    }
+    printf("\n");
+
     return 0;
 }
