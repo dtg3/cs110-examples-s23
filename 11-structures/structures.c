@@ -23,7 +23,7 @@ Structures
 #include <math.h>
 
 // Remember when compiling with math.h you need to compile with -lm:
-//  gcc -lm structures.c -o structs
+//  gcc structures.c -lm -o structs
 
 // This defines a structure that can be used anywhere in this program. There
 // can be multiple instances of this structure in the program. This definition
